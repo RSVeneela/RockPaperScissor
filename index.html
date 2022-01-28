@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rock-Paper-Scissor</title>
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Varela+Round&display=swap" rel="stylesheet">
+    
+  </head>
+  <body class="body">
+    <form class="" action="index" method="post">
+
+
+  <h1 class="display-4">Rock Paper Scissor</h1>
+  <div class="overall">
+    <div class="left">
+     <h1 class="player">Player</h1>
+     <h3 id="play" >rock/paper/scissor</h3>
+     <img id="playimage" src="/images/r2.png" alt="rock">
+     <h4 id="playscore">score</h4>
+
+
+
+    </div>
+
+
+    <div class="right">
+     <h1 class="player">Computer</h1>
+     <h3 id="comp">rock/paper/scissor</h3>
+     <img id="compimage"  src="/images/r2.png" alt="rock">
+     <h4 id="compscore">score</h4>
+
+
+    </div>
+
+
+  </div>
+<div class="btns">
+      <button type="button" class="r b play">rock</button>
+      <button type="button" class="p b play">paper</button>
+      <button type="button" class="s b play">scissor</button>
+</div>
+
+
+
+
+</form>
+<script>
+  var num=document.querySelectorAll('.b').length;
+console.log(num);
+var p=0;
+var ps=0;
+var cs=0;
+for(var i=0;i<num;i++)
+{
+document.querySelectorAll(".b")[i].addEventListener("click",function(){
+    var s=this.innerHTML;
+    console.log(s);
+    var x=document.getElementById("playimage");
+    switch (s)
+    {
+        case "rock":document.getElementById("play").innerHTML="rock";
+                    p=1;
+                    x.src="/images/r2.png";
+        break;
+        case "paper":document.getElementById("play").innerHTML="paper";
+                     p=2;
+                     x.src="/images/p2.png";
+        break;
+        case "scissor":document.getElementById("play").innerHTML="scissor";
+                       p=3;
+                       x.src="/images/s2.png";
+        break;
+    }
+    n=Math.random();
+    n=Math.ceil(n*3);
+    var y=document.getElementById("compimage")
+
+    switch(n){
+        case 1:document.getElementById("comp").innerHTML="rock";
+               y.src="/images/r2.png";
+        break;
+        case 2:document.getElementById("comp").innerHTML="paper";
+               y.src="/images/p2.png";
+        break;
+        case 3:document.getElementById("comp").innerHTML="scissor";
+               y.src="/images/s2.png";
+
+        break;
+
+    }
+    if(p==1&&n==3){
+        ps++;
+    }
+    else if(p==1&& n==2){
+        cs++;
+    }
+    else if(p==2&&n==1)
+    {
+        ps++;
+    }
+    else if(p==2&&n==3)
+    {
+        cs++;
+    }
+    else if(p==3&&n==1)
+    {
+       cs++;
+    }
+    else if(p==3&&n==2){
+      ps++;
+    }
+
+    if(cs==5){
+      document.write("<html><head><style>div{font-size:80px;color: #9a7a5f;}body{background-image: url('/images/rps.jpg');}</style></head><body><center><div>You Lost</div></center></body></html>");
+    }
+    if(ps==5){
+      
+      document.write("<html><head><style>div{font-size:80px;color: #9a7a5f;}body{background-image: url('/images/rps.jpg');}</style></head><body><center><div>You Won</div></center></body></html>");
+    }
+    document.getElementById("playscore").innerHTML=ps;
+    document.getElementById("compscore").innerHTML=cs;
+});}
+</script> 
+<script src="index.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+</body>
+
+
+</html>
